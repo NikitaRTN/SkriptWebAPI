@@ -31,9 +31,9 @@ Simple HTTP Server and Web request feature in Skript easily.
 
 This plugin requires paper server or paper based server.
 
-This plugin able to load in 1.13 or higher with Skript 2.7.3 or higher. but only 1.20.2 or higher is officially supported.
+This plugin requires Minecraft 1.21.4+ with Skript 2.11+ for optimal compatibility.
 
-1. Download `SkriptWebAPI-<Version>.jar` from [here](https://github.com/faketunaPrivateCamp/SkriptWebAPI/releases).
+1. Download `SkriptWebAPI-<Version>.jar` from [here](https://github.com/NikitaRTN/SkriptWebAPI/releases).
 2. Put your downloaded jar to server plugins folder
 3. Run and ready to use
 
@@ -45,30 +45,9 @@ Example and syntax has provided in Skript Hub
 
 ### Important
 
-If you use reply effect not in end of event you need `exit` after reply for avoid error
-```sk
-if (something):
-    reply %httpexchange% with %string% and response code 200
-    exit
-if (something2):
-    reply %httpexchange% with %string% and response code 202
-    exit
-    
-```
-
-You should respond the HTTP request otherwise HTTP clients keep waiting for your response.
-```sk
-on receive get request:
-    set {_request} to event-request
-
-    if (something):
-        reply {_request} with %string% and response code 200
-        exit
-    
-    reply {_request} with %string% and response code 500
-```
-
-If someone know forcing this syntax above please open issue.
+- Always respond to HTTP requests to prevent clients from waiting indefinitely
+- Use `exit` after reply effects when not at the end of an event to avoid errors
+- This plugin requires Minecraft 1.21.4+ and Skript 2.11+ for full compatibility
 
 ## Todo
 
