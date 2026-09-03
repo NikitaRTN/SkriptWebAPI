@@ -26,6 +26,8 @@ jobs:
           java-version: "21"
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v5
+      - name: Make Gradle wrapper executable
+        run: chmod +x ./gradlew
       - name: Build and check
         run: ./gradlew clean check shadowJar --no-daemon
       - name: Upload plugin artifact
