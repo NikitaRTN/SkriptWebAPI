@@ -1,0 +1,8 @@
+# CI smoke test: verifies that the plugin loads and core request syntax parses.
+
+on load:
+    set {_request} to new http request with method "GET"
+    set {_request}'s target url to "https://example.com/"
+    set {_request}'s request method to "POST"
+    set {_request}'s header "User-Agent" to "SkriptWebAPI-CI"
+    set {_method} to request method of {_request}
